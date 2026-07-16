@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS v2.2.19 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Customer Reviews | WareFlow</title>
+
+    <style>
+      /* Scoped animation helpers for review.html only */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes softFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.7s ease-out forwards;
+      }
+
+      .delay-75 {
+        animation-delay: 0.075s;
+      }
+      .delay-150 {
+        animation-delay: 0.15s;
+      }
+      .delay-225 {
+        animation-delay: 0.225s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-375 {
+        animation-delay: 0.375s;
+      }
+      .delay-450 {
+        animation-delay: 0.45s;
+      }
+      .delay-525 {
+        animation-delay: 0.525s;
+      }
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+
+      .float-badge {
+        animation: softFloat 4s ease-in-out infinite;
+      }
+
+      .review-card {
+        transition: transform 0.35s ease, box-shadow 0.35s ease,
+          border-color 0.35s ease;
+      }
+
+      .review-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 22px 40px -12px rgba(255, 122, 0, 0.18);
+        border-color: rgba(255, 122, 0, 0.35);
+      }
+
+      .avatar-wrap img {
+        transition: transform 0.35s ease;
+      }
+
+      .review-card:hover .avatar-wrap img {
+        transform: scale(1.12);
+      }
+
+      .cta-btn {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.35);
+      }
+
+      .stat-tile {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .stat-tile:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <h2 class="font-bold">WareFlow</h2>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="./review.html" class="cursor-pointer">Reviews</a></li>
+        <li><a href="#">Transport</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Review Hero Section -->
+    <section class="bg-orange-50 py-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Hero -->
+        <div class="text-center">
+          <!-- Badge -->
+          <div
+            class="float-badge inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-6 py-2 rounded-full text-sm font-semibold shadow-sm fade-in-up"
+          >
+            <i class="fa-solid fa-star"></i> Customer Reviews
+          </div>
+
+          <!-- Heading -->
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mt-8 leading-tight max-w-5xl mx-auto fade-in-up delay-150"
+          >
+            Trusted by
+            <span class="text-orange-500">Warehouse Teams</span>
+            Across Industries
+          </h1>
+
+          <!-- Description -->
+          <p
+            class="text-gray-600 text-base sm:text-lg leading-8 max-w-3xl mx-auto mt-8 fade-in-up delay-300"
+          >
+            Businesses rely on <span class="font-semibold text-gray-800">WareFlow</span> to
+            simplify inventory management, improve warehouse efficiency, reduce
+            stock errors, and streamline logistics with confidence.
+          </p>
+
+          <div class="mt-10 fade-in-up delay-375">
+            <a
+              href="#reviews"
+              class="cta-btn inline-block bg-orange-500 hover:bg-orange-600 text-black font-semibold px-8 py-3 rounded-lg shadow-md"
+            >
+              Read Reviews
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-14 -mt-10">
+      <div
+        class="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6 bg-white rounded-2xl shadow-lg border border-gray-100 py-10"
+      >
+        <div class="stat-tile text-center px-4 fade-in-up delay-75">
+          <i class="fa-solid fa-box text-4xl text-blue-500 mb-3"></i>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">15,000+</h2>
+          <p class="text-gray-500 text-sm mt-1">Products Stored</p>
+        </div>
+
+        <div class="stat-tile text-center px-4 fade-in-up delay-150">
+          <i class="fa-solid fa-truck text-4xl text-orange-500 mb-3"></i>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">500+</h2>
+          <p class="text-gray-500 text-sm mt-1">Daily Deliveries</p>
+        </div>
+
+        <div class="stat-tile text-center px-4 fade-in-up delay-225">
+          <i class="fa-solid fa-warehouse text-4xl text-green-500 mb-3"></i>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">80+</h2>
+          <p class="text-gray-500 text-sm mt-1">Warehouse Partners</p>
+        </div>
+
+        <div class="stat-tile text-center px-4 fade-in-up delay-300">
+          <i class="fa-solid fa-users text-4xl text-purple-500 mb-3"></i>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">10,000+</h2>
+          <p class="text-gray-500 text-sm mt-1">Happy Customers</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section id="reviews" class="bg-orange-50 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+            What Our Customers Say
+          </h2>
+          <p class="text-gray-600 mt-4">
+            Real feedback from warehouse managers, logistics teams, and
+            operations leads using WareFlow every day.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-75"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=12"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="John Carter"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">John Carter</h3>
+                <p class="text-sm text-orange-600">Warehouse Manager</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              WareFlow has transformed our warehouse operations. Inventory
+              tracking is now faster, more organized, and much easier to
+              manage.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-150"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=32"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="Emily Wilson"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">Emily Wilson</h3>
+                <p class="text-sm text-orange-600">Logistics Coordinator</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              The dashboard is simple and efficient. Our team now tracks
+              stock movement with complete confidence.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-225"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=41"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="David Lee"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">David Lee</h3>
+                <p class="text-sm text-orange-600">Operations Lead</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              We've reduced inventory mistakes significantly since
+              implementing WareFlow across our warehouses.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-300"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=55"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="Sarah Johnson"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">Sarah Johnson</h3>
+                <p class="text-sm text-orange-600">Supply Chain Manager</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              An excellent warehouse management solution. It's intuitive,
+              fast, and has greatly improved our daily workflow.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-375"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=15"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="Michael Chen"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">Michael Chen</h3>
+                <p class="text-sm text-orange-600">Inventory Analyst</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              Real-time stock visibility across all our sites has cut
+              reporting time down from days to minutes.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-450"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=26"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="Priya Nair"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">Priya Nair</h3>
+                <p class="text-sm text-orange-600">Fulfillment Supervisor</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              Onboarding our team took less than a day. WareFlow just makes
+              sense from the first login.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-525"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=8"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="Robert Miles"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">Robert Miles</h3>
+                <p class="text-sm text-orange-600">Distribution Head</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-stroke"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              Shipment tracking across multiple warehouses finally feels
+              unified instead of scattered across spreadsheets.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div
+            class="review-card relative bg-white rounded-2xl shadow-md border border-orange-100 p-6 fade-in-up delay-600"
+          >
+            <i
+              class="fa-solid fa-quote-left text-orange-200 text-3xl absolute top-5 right-5"
+            ></i>
+
+            <div class="flex items-center gap-4 avatar-wrap">
+              <img
+                src="https://i.pravatar.cc/100?img=48"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-orange-100"
+                alt="Ananya Rao"
+              />
+
+              <div>
+                <h3 class="font-semibold text-gray-800">Ananya Rao</h3>
+                <p class="text-sm text-orange-600">Procurement Officer</p>
+              </div>
+            </div>
+
+            <div class="flex text-yellow-400 mt-4 mb-3 gap-1 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="text-gray-600 text-sm leading-7">
+              Low-stock alerts and reorder tracking have saved us from
+              multiple stockouts this quarter alone.
+            </p>
+
+            <div
+              class="inline-flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full mt-5"
+            >
+              <i class="fa-solid fa-circle-check"></i> Verified Customer
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+      class="py-16 text-center text-white"
+      style="background: linear-gradient(120deg, #28a9f3, #42a0ec);"
+    >
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Ready to Optimize Your Warehouse?
+        </h2>
+        <p class="mt-4 text-blue-50 text-base md:text-lg">
+          Join thousands of businesses already streamlining their inventory
+          and logistics with WareFlow.
+        </p>
+        <a
+          href="#"
+          class="cta-btn inline-block mt-8 bg-yellow-500  text-white font-semibold px-8 py-3 rounded-lg shadow-lg"
+        >
+          Contact Us
+        </a>
+      </div>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <h2>WareFlow</h2>
+          <p>
+            WareFlow helps businesses manage inventory, track shipments, and
+            improve warehouse efficiency.
+          </p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <a href="./index.html">Home</a>
+          <a href="#">Collections</a>
+          <a href="./review.html">Reviews</a>
+          <a href="#">Transport</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Services</h3>
+          <a href="#">Inventory</a>
+          <a href="#">Shipment Tracking</a>
+          <a href="#">Order Processing</a>
+          <a href="#">Warehouse Analytics</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope"></i> support@wareflow.com</p>
+          <p><i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 WareFlow. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
