@@ -9,6 +9,7 @@ body {
     background: #f4f4f4;
 }
 
+/* Navbar*/
 .navbar {
     width: 90%;
     margin: 20px auto;
@@ -19,6 +20,8 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position:sticky;
+    top:0;
 }
 
 .logo {
@@ -36,6 +39,7 @@ body {
     font-size: 25px;
     color: #222;
 }
+
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -60,9 +64,10 @@ body {
     color: #333;
     cursor: pointer;
 }
+
 /* Hero Section */
 .hero {
-    height: 90vh;
+    height: 80vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("./images/background\ image.png");
     background-size: cover;
     background-position: center;
@@ -101,9 +106,10 @@ body {
     font-weight: bold;
     transition: 0.3s;
 }
+
 /* Button Styles */
 .btn1 {
-    background: #ff7a00;
+    background: #28a9f3;
     color: white;
 }
 
@@ -125,19 +131,35 @@ body {
 .stats {
     display: flex;
     justify-content: space-around;
-    padding: 50px;
-    background: #fff;
     flex-wrap: wrap;
     position: relative;
+    width: 90%;
+    margin: auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 20px;
+    height: 150px;
+    margin-top: 8px;
 }
-
 .stat-box {
     text-align: center;
 }
 
-.stat-box i {
+.stat-box_1 i {
+    font-size: 45px;
+    color: #197ef1;
+}
+.stat-box_2 i {
     font-size: 45px;
     color: #ff7a00;
+}
+.stat-box_3 i {
+    font-size: 45px;
+    color: #19cc55;
+}
+.stat-box_4 i {
+    font-size: 45px;
+    color: #8e1ceb;
 }
 
 .stat-box h2 {
@@ -145,22 +167,23 @@ body {
 }
 
 .stat-box p {
-    color: gray;
+    color: rgb(15, 15, 15);
 }
 
 /* CTA Section */
 .cta {
-    background: #ff7a00;
+    background: #42a0ec;
     color: white;
     text-align: center;
     padding: 30px;
+    margin-top: 10px;
 }
 
 .cta a {
     display: inline-block;
     margin-top: 10px;
-    background: white;
-    color: #ff7a00;
+    background: #ff7a00;
+    color: white;
     padding: 8px 20px;
     text-decoration: none;
     border-radius: 10px;
