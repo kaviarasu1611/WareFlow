@@ -11,11 +11,11 @@ body {
 
 /* Navbar*/
 .navbar {
-    width: 90%;
+    width: 100%;
     margin: 20px auto;
     background: #fff;
     border-radius: 30px;
-    padding: 3px 30px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,6 +74,7 @@ body {
     display: flex;
     align-items: center;
     padding-left: 80px;
+    margin-top: 8px;
 }
 
 .hero-content {
