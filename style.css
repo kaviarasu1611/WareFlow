@@ -14,13 +14,13 @@ body {
     width: 100%;
     margin-bottom: 50px;
     background: #fff;
-    padding:20px ;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
     align-items: center;
-    position:sticky;
-    top:0;
+    position: sticky;
+    top: 0;
     z-index: 10;
 }
 
@@ -145,6 +145,7 @@ body {
     margin-top: 8px;
     margin-bottom: 40px;
 }
+
 .stat-box {
     text-align: center;
 }
@@ -153,14 +154,17 @@ body {
     font-size: 45px;
     color: #197ef1;
 }
+
 .stat-box_2 i {
     font-size: 45px;
     color: #ff7a00;
 }
+
 .stat-box_3 i {
     font-size: 45px;
     color: #19cc55;
 }
+
 .stat-box_4 i {
     font-size: 45px;
     color: #8e1ceb;
@@ -290,7 +294,7 @@ body {
     display: flex;
     margin-left: 80px;
     height: 50px;
-    width: 80%;
+    width: 82%;
 }
 
 .title-input input {
@@ -305,14 +309,14 @@ body {
 .title-input button {
     background-color: #ff7a00;
     color: #f4f4f4;
-    border-radius: 20%;
+    border-radius: 10px;
     border: none;
     margin: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding: 5px 10px;
+    font-weight: bold;
 }
 
-.demo-cont{
+.demo-cont {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -320,18 +324,18 @@ body {
     font-size: vh;
 }
 
-.work-demo{
+.work-demo {
     font-size: 30px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-#logo{
+#logo {
     font-size: 30px;
     margin-top: 10px;
 }
 
-.demo-cont div{
+.demo-cont div {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     width: 220px;
     height: 180px;
@@ -339,65 +343,69 @@ body {
     font-size: 20px;
 }
 
-.demo-head{
-   margin-left: 25%;
+.demo-head {
+    margin-left: 25%;
 }
-.demo-head p{
-    color: #ff7a00;
-    margin-left: 20%;
-    margin-top: 50px;
-}
-.recent-head p{
+
+.demo-head p {
     color: #ff7a00;
     margin-left: 20%;
     margin-top: 50px;
 }
 
-.recent-head{
+.recent-head p {
+    color: #ff7a00;
+    margin-left: 20%;
+    margin-top: 50px;
+}
+
+.recent-head {
     margin-left: 25%;
     font-size: 30px;
 }
-.recent-head b{
+
+.recent-head b {
     color: #ff7a00;
 }
-.recentdelivery{
-    font-size: 30px;
+
+.recentdelivery {
+
     margin-left: 20px;
 }
 
-.table-form{
-    left: 15%;
-    position: absolute;
+.table-form {
     margin-top: 20px;
+    margin-left: 20%;
     align-items: center;
-    border-radius: 50%;
 }
-.table-head{
+
+.table-head {
     background-color: #ff7a00;
     color: #f4f4f4;
 }
 
-.table{
-    
-    font-size:20px;
+.table {
     border-radius: 40px;
-    border: #070707 solid 1px;
-
-
-    
-
 }
-.table td{
+
+.table td {
     padding: 10px;
-    border-bottom: #070707 solid 1px;
-    
 }
 
-.location{
+.table button {
+    background-color: rgb(236, 210, 178);
+    color: #ff7a00;
+    padding: 5px;
+    border-radius: 30px;
+    border: none;
+}
+
+.location {
     display: flex;
     gap: 5px;
     align-items: center;
 }
+
 .navbar {
     width: 90%;
     margin: 20px auto;
@@ -479,4 +487,37 @@ body {
     font-size: 18px;
 
 
+}
+
+.track-head{
+    align-items: center;
+    font-size: large;
+
+}
+.track-head h2{
+    margin-left: 40%;
+    margin-top: 20px;
+}
+
+.track-head p{
+    margin-top: 10px;
+    margin-left: 38%;
+}
+
+
+.track-box {
+    display: flex;
+    justify-content:center;
+    gap: 100px;
+    align-items: center;
+    text-align: center;
+    font-size: vh;
+
+}
+
+.track-box div {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    width: 220px;
+    height: 180px;
+    margin-top: 20px;
 }
