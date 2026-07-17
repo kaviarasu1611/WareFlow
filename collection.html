@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection | WareFlow</title>
+
+    <!-- tailwindcss -->
+    <link rel="stylesheet" href="output.css">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- chart cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <h2 class="font-bold">WareFlow</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./collection.html">Collections</a></li>
+            <li><a href="./review.html" class="cursor-pointer">Reviews</a></li>
+            <li><a href="./transport.html">Transport</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="flex flex-col gap-5 md:flex-row justify-between items-center mx-8 mt-12">
+        <div>
+            <h1 class="text-3xl md:text-4xl font-bold">Collection</h1>
+            <p>Manage all wareflow products and inventory</p>
+        </div>
+        <div class="flex flex-col md:flex-row items-center cursor-pointer gap-5">
+            <div class="flex items-center gap-5 border-2 border-black w-full md:w-96 p-2 rounded-full focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass" style="color: rgb(0, 0, 0);"></i>
+                <input type="text" name="search" id="search" placeholder="Search"
+                    class="focus:outline-none bg-transparent">
+            </div>
+            <div class="flex gap-10 md:gap-5">
+                <div class="border-2 border-black p-2 rounded-xl">
+                    <select name="select" id="select" class="focus:outline-none bg-transparent">
+                        <option value="0">All</option>
+                        <option value="1">Stocks In</option>
+                        <option value="2">Low Stocks</option>
+                        <option value="3">Out of Stocks</option>
+                    </select>
+                </div>
+                <button class="border-2 text-white p-2 rounded-xl bg-orange-500 border-orange-500  hover:bg-orange-600"
+                    id="addBtn">Add
+                    Product</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="addBtnPop" class="fixed z-50 inset-0 hidden bg-black/50 backdrop-blur-sm">
+        <div
+            class="flex flex-col justify-start items-center gap-5 overflow-y-auto w-[90%] sm:w-[500px] max-h-[90vh] p-6 sm:p-10 bg-white shadow-2xl rounded-2xl mx-auto relative my-6 sm:my-10">
+            <p class="flex justify-end cursor-pointer absolute top-3 right-4" id="closeBtn">X</p>
+            <p class="text-3xl font-bold mb-5">Add Product</p>
+            <label for="" class="w-full">
+                <p class="mb-3">Product Name:</p> <input type="text" name="name" id="name"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" placeholder="iPhone 12"
+                    required>
+                <p class="error" id="nameError"></p>
+            </label>
+            <label for="" class="w-full">
+                <p class="mb-3">SKU: </p><input type="text" name="sku" id="sku" placeholder="ELE101"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" required>
+                <p class="error" id="SkuError"></p>
+            </label>
+            <label for="" class="w-full">Categroy: <select name="category"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" id="categoy" required>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Wearables">Wearables</option>
+                    <option value="TV">TV</option>
+                    <option value="Appliances">Appliances</option>
+                </select>
+                <p class="error" id="selectError"></p>
+            </label>
+
+            <label for="" class="w-full">Stock In: <input type="number" name="stock_in" id="stock_in"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" placeholder="45" required>
+                <p class="error" id="StockError"></p>
+            </label>
+            <label for="" class="w-full">Rack Location: <input type="text" name="rack_location" id="rack_location"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" placeholder="A1-03" required>
+                <p class="error" id="RackError"></p>
+            </label>
+            <label for="" class="w-full">Price: <input type="number" name="price" id="price"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" placeholder="79999" required>
+                <p class="error" id="priceError"></p>
+            </label>
+            <label for="" class="w-full">Supplier Name: <input type="text" name="supplier_name"
+                    class="w-full focus:outline-none border-2 border-black p-1 rounded-xs" id="supplier_name"
+                    placeholder="ABC Electronics" required>
+                <p class="error" id="supplierError"></p>
+            </label>
+            <button id="add" class="bg-blue-600 text-white p-2">Add</button>
+        </div>
+    </div>
+
+
+    <!-- data -->
+    <section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mx-5 my-10 gap-5">
+        <div
+            class="flex items-center gap-5 bg-white border-black p-5 w-full rounded-xl cursor-default hover:scale-105 transform transition duration-500">
+            <div class="bg-blue-100 p-3 rounded-full">
+                <i data-lucide="package" class="w-10 h-10 text-blue-600"></i>
+            </div>
+            <div>
+                <p>Total Products</p>
+                <p class="text-3xl font-bold" id="product_count"></p>
+                <!-- <p><span class="text-green-600">+120</span> in this month</p> -->
+            </div>
+        </div>
+        <div
+            class="flex items-center gap-5 bg-white border-black p-5 w-full rounded-xl cursor-default hover:scale-105 transform transition duration-500">
+            <div class="bg-blue-100 p-3 rounded-full">
+                <i data-lucide="layout-grid" class="w-10 h-10 text-purple-600"></i>
+            </div>
+            <div>
+                <p>Categories</p>
+                <p class="text-3xl font-bold" id="category_count"></p>
+                <!-- <p>All products type</p> -->
+            </div>
+        </div>
+        <div
+            class="flex items-center gap-5 bg-white border-black p-5 w-full rounded-xl cursor-default hover:scale-105 transform transition duration-500">
+            <div class="bg-blue-100 p-3 rounded-full">
+                <i data-lucide="circle-check-big" class="w-10 h-10 text-green-600"></i>
+            </div>
+            <div>
+                <p>Stocks In</p>
+                <p class="text-3xl font-bold" id="product_stocks"></p>
+                <!-- <p><span class="text-green-600">92%</span> of total</p> -->
+            </div>
+        </div>
+        <div
+            class="flex items-center gap-5 bg-white border-black p-5 w-full rounded-xl cursor-default hover:scale-105 transform transition duration-500">
+            <div class="bg-blue-100 p-3 rounded-full">
+                <i data-lucide="triangle-alert" class="w-10 h-10 text-orange-600"></i>
+            </div>
+            <div>
+                <p>Low Stock</p>
+                <p class="text-3xl font-bold" id="product_lowStock"></p>
+                <!-- <p><span class="text-orange-400">4.16%</span> of total</p> -->
+            </div>
+        </div>
+        <div
+            class="flex items-center gap-5 bg-white border-black p-5 w-full rounded-xl cursor-default hover:scale-105 transform transition duration-500">
+            <div class="bg-blue-100 p-3 rounded-full">
+                <i data-lucide="circle-x" class="w-10 h-10 text-red-600"></i>
+            </div>
+            <div>
+                <p>Out of Stock</p>
+                <p class="text-3xl font-bold" id="product_outStock"></p>
+                <!-- <p><span class="text-red-600">-7%</span> of total</p> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- category -->
+    <section>
+        <div class="flex justify-between items-center mx-5 my-10 cursor-pointer">
+            <div class="category grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-5">
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:text-white hover:bg-orange-500 hover:border-orange-500">
+                    All</p>
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:bg-orange-500 hover:border-orange-500 hover:text-white ">
+                    Mobile</p>
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:text-white hover:bg-orange-500 hover:border-orange-500">
+                    Laptop</p>
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:text-white hover:bg-orange-500 hover:border-orange-500">
+                    Accessories</p>
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:bg-orange-500 hover:border-orange-500 hover:text-white">
+                    TV</p>
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:text-white hover:bg-orange-500 hover:border-orange-500">
+                    Wearables</p>
+                <p
+                    class="border-black border-2 p-2 rounded-full text-center w-full hover:bg-orange-500 hover:border-orange-500 hover:text-white">
+                    Appliances</p>
+            </div>
+            <div class="hidden lg:flex items-center gap-2 text-blue-600">
+                <i data-lucide="menu"></i>
+                <a href="">View All Categories</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="mx-5 my-10 overflow-x-auto">
+        <table class=" w-full text-left border-collapse rounded-2xl shadow-2xl">
+            <thead>
+                <tr class="border-b bg-gray-300">
+                    <th class="p-4">Product</th>
+                    <th class="p-4">SKU</th>
+                    <th class="p-4">Category</th>
+                    <th class="p-4">Stock</th>
+                    <th class="p-4">Rack Location</th>
+                    <th class="p-4">Price</th>
+                    <th class="p-4">Supplier</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-10 mx-5 my-10">
+        <div class="p-3 shadow-2xl rounded-2xl">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b">
+                        <th class="text-xl font-bold p-4">Low Stock Alert</th>
+                        <th class="text-blue-600 p-4">View All</th>
+                    </tr>
+                <tbody id="table_Low">
+                </tbody>
+                </thead>
+
+            </table>
+
+        </div>
+        <div class="p-3 shadow-2xl rounded-2xl">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b">
+                        <th class="text-xl font-bold p-4">Recently Added</th>
+                        <th class="text-blue-600 p-4">View All</th>
+                    </tr>
+                <tbody id="table_recent">
+                </tbody>
+                </thead>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <h2>WareFlow</h2>
+                <p>
+                    WareFlow helps businesses manage inventory, track shipments, and
+                    improve warehouse efficiency.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="./index.html">Home</a>
+                <a href="#">Collections</a>
+                <a href="./review.html">Reviews</a>
+                <a href="#">Transport</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Services</h3>
+                <a href="#">Inventory</a>
+                <a href="#">Shipment Tracking</a>
+                <a href="#">Order Processing</a>
+                <a href="#">Warehouse Analytics</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> support@wareflow.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 WareFlow. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+
+        var products = JSON.parse(localStorage.getItem("products")) || [];
+
+
+        // category
+        var categoryAll = document.querySelectorAll(".category p");
+        categoryAll.forEach(x => {
+
+            x.addEventListener("click", function () {
+                console.log(x.textContent.trim());
+                if (x.textContent.trim() === "All") {
+                    updateCollection(products);
+                }
+                else {
+                    const filtered = products.filter(y => y.category.toLowerCase() === x.textContent.trim().toLowerCase());
+                    updateCollection(filtered);
+                }
+            })
+        })
+
+
+
+        // search
+        var search = document.getElementById("search");
+        search.addEventListener("keyup", function () {
+            const search_filtered = products.filter(y => y.name.toLowerCase().includes(search.value.trim().toLowerCase()));
+            updateCollection(search_filtered);
+        })
+
+        function updateDashBoard(products) {
+            var product_count = document.getElementById("product_count");
+            product_count.textContent = products.length;
+
+            var product_stocks = document.getElementById("product_stocks");
+            let stocks_count = 0;
+            products.forEach(x => {
+                stocks_count += Number(x.stock);
+            })
+            product_stocks.textContent = stocks_count;
+
+
+            var product_lowStock = document.getElementById("product_lowStock");
+            let low_stock = products.filter(x => x.stock < 10);
+            product_lowStock.textContent = low_stock.length;
+
+
+
+            var product_outStock = document.getElementById("product_outStock");
+            let outStock = products.filter(product => product.stock == 0);
+            product_outStock.textContent = outStock.length;
+
+            // category_count
+            var category_count = document.getElementById("category_count");
+            const count = new Set(products.map(x => x.category));
+            category_count.textContent = count.size;
+        }
+
+
+        // filter
+        var select = document.getElementById("select");
+        select.addEventListener("change", function () {
+            if (select.value === "0") {
+                updateCollection(products);
+            }
+            else if (select.value === "1") {
+                const selectFiltered = products.filter(x => x.stock > 10);
+                updateCollection(selectFiltered);
+            }
+            else if (select.value === "2") {
+                const selectFiltered = products.filter(x => x.stock < 10);
+                updateCollection(selectFiltered);
+            }
+            else {
+                const selectFiltered = products.filter(x => x.stock === 0);
+                updateCollection(selectFiltered);
+            }
+        })
+
+
+        // addBtn and closeBtn
+        var closeBtn = document.getElementById("closeBtn");
+        var addBtn = document.getElementById("addBtn");
+        var addBtnPop = document.getElementById("addBtnPop");
+        var add = document.getElementById("add");
+        addBtn.addEventListener("click", function () {
+            addBtnPop.classList.add("flex");
+            addBtnPop.classList.remove("hidden");
+        });
+
+        closeBtn.addEventListener("click", function () {
+            addBtnPop.classList.remove("flex");
+            addBtnPop.classList.add("hidden");
+        });
+        function validateForm() {
+
+            let isValid = true;
+
+            // clear previous errors
+            document.querySelectorAll(".error").forEach(error => error.textContent = "");
+
+            let name = document.getElementById("name").value.trim();
+            let sku = document.getElementById("sku").value.trim();
+            let category = document.getElementById("categoy").value;
+            let stock = document.getElementById("stock_in").value;
+            let rack = document.getElementById("rack_location").value.trim();
+            let price = document.getElementById("price").value;
+            let supplier = document.getElementById("supplier_name").value.trim();
+
+            // Product Name
+            if (name.length < 3) {
+                document.getElementById("nameError").textContent = "Enter a valid product name";
+                isValid = false;
+            }
+
+            // SKU
+            if (!/^[A-Z]{3}\d{3}$/.test(sku)) {
+                document.getElementById("SkuError").textContent = "SKU should be like ELE101";
+                isValid = false;
+            }
+
+            // Category
+            if (category == "") {
+                document.getElementById("selectError").textContent = "Select category";
+                isValid = false;
+            }
+
+            // Stock
+            if (stock === "" || Number(stock) < 0) {
+                document.getElementById("StockError").textContent = "Enter valid stock";
+                isValid = false;
+            }
+
+            // Rack
+            if (!/^[A-Z]\d-\d{2}$/.test(rack)) {
+                document.getElementById("RackError").textContent = "Example : A1-03";
+                isValid = false;
+            }
+
+            // Price
+            if (price === "" || Number(price) <= 0) {
+                document.getElementById("priceError").textContent = "Enter valid price";
+                isValid = false;
+            }
+
+            // Supplier
+            if (supplier.length < 3) {
+                document.getElementById("supplierError").textContent = "Enter supplier name";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        add.addEventListener("click", function () {
+            if (!validateForm()) {
+                return;
+            }
+            var p_name = document.getElementById("name").value;
+            var p_sku = document.getElementById("sku").value;
+            var p_category = document.getElementById("categoy").value;
+            var p_stock = document.getElementById("stock_in").value;
+            var p_rack_location = document.getElementById("rack_location").value;
+            var p_price = document.getElementById("price").value;
+            var p_supplier_name = document.getElementById("supplier_name").value;
+
+            products.push({
+                "name": p_name,
+                "sku": p_sku,
+                "category": p_category,
+                "stock": p_stock,
+                "rackLocation": p_rack_location,
+                "price": p_price,
+                "supplierName": p_supplier_name
+            })
+
+            localStorage.setItem("products", JSON.stringify(products));
+            console.log(products);
+            document.getElementById("name").value = "";
+            document.getElementById("sku").value = "";
+            document.getElementById("stock_in").value = "";
+            document.getElementById("rack_location").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("supplier_name").value = "";
+            document.getElementById("categoy").selectedIndex = 0;
+            addBtnPop.classList.remove("flex");
+            addBtnPop.classList.add("hidden");
+            updateCollection(products);
+            lowStock_table(products.filter(x => Number(x.stock) <= 10));
+            recent(products.slice(-5).reverse());
+        })
+
+
+
+
+
+
+        // update row everytime
+        var tableRow = document.getElementById("tableBody");
+        updateCollection(products);
+        function updateCollection(products) {
+            if (products.length === 0) {
+                tableRow.innerHTML = `<tr>
+                    <td colspan="9" class="text-center p-8 text-gray-500">No products found.</td>
+                    </tr>`;
+                return;
+
+            }
+            tableRow.innerHTML = "";
+            products.forEach((x, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td class="p-4">${x.name}</td>
+                    <td class="p-4">${x.sku}</td>
+                    <td class="p-4">${x.category}</td>
+                    <td class="p-4">${x.stock}</td>
+                    <td class="p-4">${x.rackLocation}</td>
+                    <td class="p-4">₹ ${Number(x.price).toLocaleString("en-IN")}</td>
+                    <td class="p-4">${x.supplierName}</td>
+                    <td class="p-4  ${(x.stock > 10) ? 'text-green-600' : 'text-orange-600'}">${(x.stock > 10) ? "In Stock" : "Low Stock"}</td>
+                    <td class="p-4 flex gap-5">
+                        <i class="fa-solid fa-eye cursor-pointer view-btn"></i>
+                        <i class="fa-solid fa-trash text-red-600 cursor-pointer delete-btn"></i>
+                    </td>
+                    `;
+                row.querySelector(".delete-btn").addEventListener("click", function () {
+
+                    if (confirm("Are you sure you want to delete this product?")) {
+
+                        products.splice(index, 1);
+
+                        localStorage.setItem("products", JSON.stringify(products));
+
+                        updateCollection(products);
+                        lowStock_table(products.filter(x => Number(x.stock) <= 10));
+                        recent(products.slice(-5).reverse());
+                    }
+                });
+                row.className = "border-b hover:bg-gray-200 transition";
+                tableRow.appendChild(row);
+
+            })
+            updateDashBoard(products);
+
+
+        }
+
+
+
+
+        // lowstock
+        var table_Low = document.getElementById("table_Low");
+        function lowStock_table(products) {
+            table_Low.innerHTML = "";
+            console.log(products);
+            products.forEach(x => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td class="p-4">${x.name}</td>
+                    <td class="p-4 text-red-700">${x.stock} left</td>
+                    `;
+                row.className = "border-b hover:bg-gray-200 transition";
+                table_Low.appendChild(row);
+            })
+        }
+        const low_stock = products.filter(y => (y.stock < 10));
+        console.log(low_stock);
+        lowStock_table(low_stock);
+
+
+        // recent
+        var table_recent = document.getElementById("table_recent");
+        function recent(products) {
+            table_recent.innerHTML = "";
+            console.log(products);
+            products.forEach(x => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td class="p-4">${x.name}</td>
+                    <td class="p-4 text-green-700">+ ${x.stock}</td>
+                    `;
+                row.className = "border-b hover:bg-gray-200 transition";
+                table_recent.appendChild(row);
+            })
+        }
+        const recent_filter = products.slice(-5).reverse();
+        recent(recent_filter);
+    </script>
+
+</body>
+
+</html>
