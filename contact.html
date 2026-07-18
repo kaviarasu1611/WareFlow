@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warehouse Management</title>
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="contact.css">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
-    <!--Navbar-->
+  <!--Navbar-->
     <nav class="navbar">
 
         <div class="logo">
@@ -28,10 +27,10 @@
 
         <ul class="nav-links">
             <li><a href="./index.html">Home</a></li>
-            <li><a href="#">Collections</a></li>
-            <li><a href="./review.html">Reviews</a></li>
+            <li><a href="./collection.html">Collections</a></li>
+            <li><a href="./review.html" class="cursor-pointer">Reviews</a></li>
             <li><a href="./transport.html">Transport</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="./contact.html">Contact</a></li>
         </ul>
 
         <div class="menu-icon">
@@ -39,108 +38,68 @@
         </div>
     </nav>
 
-    <!--contact form-->
+<!-- Contact Header -->
 
-  
+<section class="contact-header">
+    <h1>Contact Us</h1>
+    <p>Need help? We'd love to hear from you.</p>
+</section>
 
-    <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-        <div class="container mx-auto">
-            <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-                <div class="text-center">
-                    <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-                        Contact Us
-                    </h1>
-                    <p class="text-gray-400 dark:text-gray-400">
-                        Fill up the form below to send us a message.
-                    </p>
-                </div>
-                <div class="m-7">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="form">
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-                        <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-                        <input type="checkbox" name="botcheck" id="" style="display: none;" />
+<!-- Contact Section -->
 
-                        <div class="mb-6">
-                            <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full
-                                Name</label>
-                            <input type="text" name="name" id="name" placeholder="John Doe" required
-                                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email
-                                Address</label>
-                            <input type="email" name="email" id="email" placeholder="you@company.com" required
-                                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                        </div>
-                        <div class="mb-6">
-                            <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
-                            <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required
-                                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your
-                                Message</label>
+<section class="contact-container">
 
-                            <textarea rows="5" name="message" id="message" placeholder="Your Message"
-                                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
-                                required></textarea>
-                        </div>
-                        <div class="mb-6">
-                            <button type="submit"
-                                class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                                Send Message
-                            </button>
-                        </div>
-                        <p class="text-base text-center text-gray-400" id="result"></p>
-                    </form>
-                </div>
-            </div>
+    <div class="contact-info">
+
+        <h2>Get In Touch</h2>
+
+        <div class="info">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Chennai, Tamil Nadu</span>
         </div>
+
+        <div class="info">
+            <i class="fa-solid fa-envelope"></i>
+            <span>support@wareflow.com</span>
+        </div>
+
+        <div class="info">
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 98765 43210</span>
+        </div>
+
+        <div class="info">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon - Sat : 9 AM - 6 PM</span>
+        </div>
+
     </div>
-    <!--Footer-->
-    <footer class="footer">
 
-        <div class="footer-container">
+    <div class="contact-form">
 
-            <div class="footer-box">
-                <i class="fa-solid fa-boxes-stacked"></i>
-                <h2>WareFlow</h2>
-                <p>WareFlow helps businesses manage inventory,track shipments, and improve warehouse efficiency.</p>
-            </div>
+        <form>
 
-            <div class="footer-box">
-                <h3>Quick Links</h3>
-                <a href="#">Home</a>
-                <a href="#">Collections</a>
-                <a href="#">Reviews</a>
-                <a href="#">Transport</a>
-                <a href="#">Contact</a>
-            </div>
+            <input type="text" placeholder="Your Name" required>
 
-            <div class="footer-box">
-                <h3>Services</h3>
-                <a href="#">Inventory</a>
-                <a href="#">Shipment Tracking</a>
-                <a href="#">Order Processing</a>
-                <a href="#">Warehouse Analytics</a>
-            </div>
+            <input type="email" placeholder="Email Address" required>
 
-            <div class="footer-box">
-                <h3>Contact</h3>
-                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fa-solid fa-envelope"></i> support@wareflow.com</p>
-                <p><i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu</p>
-            </div>
+            <input type="text" placeholder="Subject">
 
-        </div>
+            <textarea rows="6" placeholder="Your Message"></textarea>
 
-        <div class="footer-bottom">
-            <p>© 2026 WareFlow. All Rights Reserved.</p>
-        </div>
+            <button>Send Message</button>
 
-    </footer>
+        </form>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+    <p>© 2026 WareFlow | Warehouse Management System</p>
+</footer>
+
 </body>
-
-<script src="./contact.js"></script>
-
 </html>
