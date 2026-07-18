@@ -276,7 +276,6 @@ body {
 /* ===========================
    Mobile Responsive (768px)
 =========================== */
-
 @media (max-width:768px){
 
     .menu-icon{
@@ -285,11 +284,20 @@ body {
      
     /* Navbar */
     .navbar{
-    width:90%;
-    margin:20px auto;
-    padding:10px 15px;
-    box-sizing:border-box;
-}
+        width:90%;
+        margin:20px auto;
+        padding:10px 15px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    nav{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+    }
 
     .logo h2{
         font-size:22px;
@@ -303,6 +311,24 @@ body {
         display:block;
         font-size:28px;
     }
+
+.contact-container{
+    flex-direction:column;
+}
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.contact-header h1{
+    font-size:32px;
+}
 
     /* Hero */
     .hero{
