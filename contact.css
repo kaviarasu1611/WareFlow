@@ -184,6 +184,20 @@ footer{
 
     .nav-links{
         display:none;
+        flex-direction:column;  /* Important */
+        position:absolute;
+        top:70px;
+        right:15px;
+        width:180px;
+        background:white;
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        gap:15px;
+    }
+
+    .nav-links.active{
+        display:flex;
     }
 
     .menu-icon{
@@ -193,16 +207,6 @@ footer{
 
 .contact-container{
     flex-direction:column;
-}
-
-nav{
-    flex-direction:column;
-    gap:20px;
-}
-
-nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
 }
 
 .contact-header h1{

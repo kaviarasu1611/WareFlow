@@ -277,7 +277,6 @@ body {
    Mobile Responsive (768px)
 =========================== */
 @media (max-width:768px){
-
     .menu-icon{
         display:block;
     }
@@ -290,6 +289,7 @@ body {
         display:flex;
         justify-content:space-between;
         align-items:center;
+        position:relative;
     }
 
     nav{
@@ -298,6 +298,11 @@ body {
         justify-content:space-between;
         align-items:center;
     }
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
 
     .logo h2{
         font-size:22px;
@@ -305,6 +310,20 @@ body {
 
     .nav-links{
         display:none;
+        flex-direction:column; 
+        position:absolute;
+        top:70px;
+        right:15px;
+        width:180px;
+        background:white;
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        gap:15px;
+    }
+
+    .nav-links.active{
+        display:flex;
     }
 
     .menu-icon{
@@ -314,16 +333,6 @@ body {
 
 .contact-container{
     flex-direction:column;
-}
-
-nav{
-    flex-direction:column;
-    gap:20px;
-}
-
-nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
 }
 
 .contact-header h1{
@@ -452,8 +461,6 @@ nav ul{
     font-size: 45px;
     text-align: center;
 
-
-
 }
 
 .title-head {
@@ -494,7 +501,7 @@ nav ul{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    font-size: vh;
+    font-size: 16px;
 }
 
 .work-demo {
@@ -694,3 +701,184 @@ nav ul{
     height: 180px;
     margin-top: 20px;
 }
+
+/* ===========================
+   Mobile Responsive (768px)
+=========================== */
+@media (max-width:768px){
+
+    .title-img img{
+        height:300px;
+        object-fit:cover;
+    }
+
+    .title-con{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:90%;
+        text-align:center;
+        font-size:16px;
+    }
+
+    .title-head{
+        display:block;
+    }
+
+    .title-head h1{
+        font-size:32px;
+        line-height:1.1;
+    }
+
+    .title-con p{
+        font-size:14px;
+    }
+
+    .title-input{
+        width:100%;
+        margin:15px auto;
+        height:45px;
+    }
+
+    .title-input input{
+        width:70%;
+        font-size:14px;
+    }
+
+    .title-input button{
+        font-size:12px;
+        padding:5px 10px;
+    }
+    .demo-cont{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .demo-cont div{
+        width:90%;
+        height:auto;
+        padding:15px;
+    }
+
+    .demo-cont .fa-right-long{
+        transform:rotate(90deg);
+    }
+    .recent-head{
+    margin-left:0;
+    text-align:center;
+    font-size:20px;
+}
+
+.recent-head p{
+    margin-left:0;
+}
+
+.table-form{
+    overflow-x:auto;
+    margin-left:0;
+    padding:10px;
+}
+
+.table{
+    min-width:800px;
+    border-collapse:collapse;
+}
+
+.table td{
+    padding:8px;
+    font-size:14px;
+}
+
+.location{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+    .menu-icon{
+        display:block;
+    }
+    .track-box{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .track-cont{
+        width:90%;
+        max-width:280px;
+        min-height:250px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        padding:15px;
+    }
+
+    .track-cont button{
+        margin-top:auto;
+        margin-bottom:10px;
+    }
+
+     
+    /* Navbar */
+    .navbar{
+        width:90%;
+        margin:20px auto;
+        padding:10px 15px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:relative;
+    }
+
+    nav{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
+
+    .logo h2{
+        font-size:22px;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;  /* Important */
+        position:absolute;
+        top:70px;
+        right:15px;
+        width:180px;
+        background:white;
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        gap:15px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-icon{
+        display:block;
+        font-size:28px;
+    }
+
+.contact-container{
+    flex-direction:column;
+}
+
+.contact-header h1{
+    font-size:32px;
+}
+}
+
